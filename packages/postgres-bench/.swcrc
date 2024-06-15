@@ -1,0 +1,26 @@
+{
+  "$schema": "https://swc.rs/schema.json",
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "dynamicImport": true
+    },
+    "baseUrl": "./",
+    "target": "es2024",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "keepClassNames": true
+  },
+  "sourceMaps": true,
+  "inlineSourcesContent": false,
+  "isModule": true,
+  "minify": false,
+  "module": {
+    "type": "nodenext",
+    "strict": true,
+    "noInterop": true,
+    "resolveFully": true
+  },
+  "exclude": ["__tests__"]
+}

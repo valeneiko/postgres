@@ -1,0 +1,51 @@
+{
+  "name": "@valeneiko/postgres",
+  "version": "0.0.0",
+  "private": true,
+  "homepage": "https://github.com/valeneiko/postgres/tree/main/packages/postgres#readme",
+  "bugs": "https://github.com/valeneiko/postgres/issues",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valeneiko/postgres.git",
+    "directory": "packages/postgres"
+  },
+  "os": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./connection": {
+      "types": "./dist/connection.d.ts",
+      "default": "./dist/connection.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "dev": "node --enable-source-maps --import @swc-node/register/esm-register",
+    "build": "swc --copy-files --out-dir dist --strip-leading-paths ./src",
+    "build:declaration": "tsgo -b ./tsconfig.build.json --declaration --emitDeclarationOnly --noCheck",
+    "clean": "tsgo -b ./tsconfig.build.json --clean",
+    "typecheck": "tsgo --noEmit --pretty",
+    "test": "vitest --root ../.. --project @valeneiko/postgres",
+    "bench": "vitest bench --root ../.. --project @valeneiko/postgres",
+    "lint:biome": "pnpm -w exec biome check --write ./packages/postgres",
+    "lint:oxc": "pnpm -w exec oxlint --type-aware --type-check --fix ./packages/postgres",
+    "lint:eslint": "pnpm -w exec eslint --cache --fix --concurrency auto ./packages/postgres"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=24.7",
+    "pnpm": "^10"
+  },
+  "packageManager": "pnpm@10.27.0+sha512.72d699da16b1179c14ba9e64dc71c9a40988cbdc65c264cb0e489db7de917f20dcf4d64d8723625f2969ba52d4b7e2a1170682d9ac2a5dcaeaab732b7e16f04a"
+}

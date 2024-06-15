@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "shardulm94.trailing-spaces",
+    "streetsidesoftware.code-spell-checker",
+    "biomejs.biome",
+    "oxc.oxc-vscode",
+    "dbaeumer.vscode-eslint",
+    "TypeScriptTeam.native-preview"
+  ],
+  "unwantedRecommendations": ["esbenp.prettier-vscode"]
+}

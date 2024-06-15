@@ -1,0 +1,142 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true,
+    "defaultBranch": "main"
+  },
+  "files": {
+    "includes": [
+      "**",
+      "!dist",
+      "!.tanstack",
+      "!**/dist",
+      "!**/.tanstack",
+      "!coverage",
+      "!**/coverage",
+      "!**/routeTree.gen.ts"
+    ]
+  },
+  "formatter": {
+    "indentStyle": "space",
+    "lineWidth": 100
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": false,
+      "a11y": {
+        "noInteractiveElementToNoninteractiveRole": "error",
+        "noNoninteractiveElementInteractions": "error",
+        "noNoninteractiveElementToInteractiveRole": "error",
+        "noStaticElementInteractions": "error",
+        "useFocusableInteractive": "error",
+        "useValidAriaValues": "error"
+      },
+      "complexity": {
+        "useLiteralKeys": "error",
+        "useOptionalChain": "error"
+      },
+      "style": {
+        "useBlockStatements": {
+          "level": "error",
+          "fix": "safe",
+          "options": {}
+        },
+        "useConst": "error",
+        "useForOf": "error",
+        "useUnifiedTypeSignatures": "error"
+      },
+      "suspicious": {
+        "noConfusingVoidType": "error",
+        "noMisleadingCharacterClass": "error",
+        "useAwait": "error"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "trailingCommas": "all",
+      "bracketSameLine": true,
+      "quoteStyle": "single"
+    }
+  },
+  "css": {
+    "parser": {
+      "cssModules": true
+    },
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "indentWidth": 2
+    },
+    "linter": {
+      "enabled": true
+    }
+  },
+  "html": {
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "indentWidth": 2
+    }
+  },
+  "overrides": [
+    {
+      "includes": [".vscode/**", "**/tsconfig.json", "**/tsconfig.*.json", ".oxlintrc.json"],
+      "json": {
+        "parser": {
+          "allowComments": true,
+          "allowTrailingCommas": true
+        }
+      }
+    },
+    {
+      "includes": ["**/*.css"],
+      "linter": {
+        "rules": {
+          "recommended": true
+        }
+      }
+    }
+  ],
+  "assist": {
+    "enabled": null,
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              {
+                "type": null,
+                "source": [":NODE:", "react*", "react*/**"]
+              },
+              ":BLANK_LINE:",
+              {
+                "type": false,
+                "source": [":PACKAGE:", "uWebSockets.js"]
+              },
+              ":BLANK_LINE:",
+              {
+                "type": false,
+                "source": ["@/**", "!*.css", "!**/*.css"]
+              },
+              ":BLANK_LINE:",
+              {
+                "type": false,
+                "source": ["*.css", "**/*.css"]
+              },
+              ":BLANK_LINE:",
+              {
+                "type": true
+              }
+            ],
+            "identifierOrder": "natural"
+          }
+        }
+      }
+    }
+  }
+}

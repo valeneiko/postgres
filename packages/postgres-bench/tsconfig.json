@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.build.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "noEmit": true,
+    "composite": false,
+    "typeRoots": ["./node_modules/@types", "./typedefs"]
+  },
+  "include": ["src", "vitest.config.ts"],
+  "exclude": []
+}
